@@ -8,12 +8,17 @@ import Team from './component/Team';
 import Home from './component/Home';
 
 function App() {
+    const handleLogout = () => {
+        localStorage.clear();
+    };
     return (
         <Router>
 
             <ul className="navbar-nav mr-auto">
                 <li><Link to={'/'} className="nav-link"> Login </Link></li>
                 <li><Link to={'/home'} className="nav-link"> Home </Link></li>
+
+                <button onClick={handleLogout}>logout</button>
             </ul>
 
             <Switch>
