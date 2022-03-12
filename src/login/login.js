@@ -1,61 +1,80 @@
-import React, { Component } from "react";
-import Form from "react-bootstrap/Form";
+import React, {useState, useEffect} from "react";
+import {Route, Redirect, Link} from 'react-router-dom';
+import Home from '../component/Home';
+import jwt_decode from "jwt-decode";
 import '../App.css';
-import axios from 'axios';
 
-export default class Login extends Component {
+const App = () => {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [user, setUser] = useState();
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            email: "",
-            password: ""
+    useEffect(() => {
+
+        const loggedInUser = localStorage.getItem("user");
+        if (loggedInUser) {
+            const foundUser = JSON.parse(loggedInUser);
+            setUser(foundUser);
+        }
+    }, []);
+
+    const handleSubmit = async e => {
+        e.preventDefault();
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({email: username, password: password})
         };
-    }
+        const response = await fetch('http://localhost:3003/login', requestOptions);
+        const data = await response.json();
+        if (data.accessToken != null) {
+            setUser(data.accessToken);
+            localStorage.setItem("user", JSON.stringify(data.accessToken));
+            localStorage.setItem("email", username);
+            localStorage.setItem("password", password);
+            const decoded = jwt_decode(data.accessToken);
+            localStorage.setItem("id", decoded.sub);
+        }
+    };
 
-    connexion = () =>{
-        const mail = this.state.email;
-        const pass = this.state.password;
-        const info = { email: mail, password: pass };
-        axios({
-            method: 'post',
-            url: 'http://localhost:3003/login',
-            data: info
-        })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (erreur) {
-                console.log(erreur);
-            });
-    }
-
-    render() {
+    if (user) {
         return (
-            <div className="Login">
-                <Form>
-                    <Form.Group size="lg" controlId="email">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control
-                            autoFocus
-                            type="email"
-                            value={this.state.email}
-                            onChange={(e) => this.setState({ email: e.target.value })}
-                        />
-                    </Form.Group>
-                    <Form.Group size="lg" controlId="password">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control
-                            type="password"
-                            value={this.state.password}
-                            onChange={(e) => this.setState({ password: e.target.value })}
-                        />
-                    </Form.Group>
-                    <button block size="lg" onClick={() => this.connexion()}>
-                        Login
-                    </button>
-                </Form>
+            <div>
+                <Route exact path="/">
+                    <Redirect to="/home"/> : <Home/>
+                </Route>
             </div>
-        )
+        );
     }
-}
+
+    return (
+        <div class="container">
+
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="username">Email Address: </label>
+                <input
+                    type="text"
+                    value={username}
+                    placeholder="enter a username"
+                    onChange={({target}) => setUsername(target.value)}
+                />
+                <div>
+                    <label htmlFor="password">Password: </label>
+                    <input
+                        type="password"
+                        value={password}
+                        placeholder="enter a password"
+                        onChange={({target}) => setPassword(target.value)}
+                    />
+                </div>
+                <button type="submit">sign in</button>
+                <Link class="lien" to={`/register`}>
+                    <button type="submit" style={{"margin-left": "10px"}}>sign up</button>
+                </Link>
+            </form>
+        </div>
+    );
+};
+
+export default App;
