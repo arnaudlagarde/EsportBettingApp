@@ -1,14 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-function Home() {
+class Home extends Component{
 
-    return (
-        <div>
-            <Link key={'rl'} to={`rl/ligues`}>Rocket League</Link>
-            <Link key={'lol'} to={`lol/ligues`}>League of Legends</Link>
-        </div>
-    );
+
+
+    render() {
+        const game = [{id: 'rl', nom: 'Rocket League'}, {id: 'lol', nom: 'League of Legends'}];
+        return(
+
+            <div>
+                {game.map(game =>
+                    <Link key={game.id} to={`/div/${game.id}`}>{game.nom}</Link>
+                )}
+
+            </div>
+        )
+    }
 }
 
 export default Home;

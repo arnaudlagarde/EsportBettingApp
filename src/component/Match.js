@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
-class Match extends Component{
+class Match extends Component {
 
     constructor(props) {
         super(props);
@@ -10,8 +10,8 @@ class Match extends Component{
         }
     }
 
-    async componentDidMount(){
-        const response = await fetch('https://api.pandascore.co/rl/matchs?filter[league_id]='+this.props.match.params.id+'&token=rRcdDE_NFYnsdPhB_SgRMlITTj29-tgl2hVxZvfwmvlb5DdDghU');
+    async componentDidMount() {
+        const response = await fetch('https://api.pandascore.co/rl/matchs?filter[league_id]=' + this.props.match.params.id + '&token=rRcdDE_NFYnsdPhB_SgRMlITTj29-tgl2hVxZvfwmvlb5DdDghU');
         const data = await response.json();
         this.setState({
             matchs: data
@@ -20,15 +20,16 @@ class Match extends Component{
     }
 
     render() {
-        return(
+        return (
             <div>
 
                 {this.state.matchs.map(match =>
-                    <div style={{border:'1px solid black'}}>
+                    <div style={{border: '1px solid black'}}>
                         <p>{match.name}</p>
 
                         {match.opponents.map(opponent =>
-                            <Link key={opponent.opponent.id} to={`/equipe/${opponent.opponent.id}`}>
+                            <Link key={opponent.opponent.id} game={this.props.match.params.game}
+                                  to={`/${this.props.match.params.game}/equipe/${opponent.opponent.id}`}>
                                 <img src={opponent.opponent.image_url}></img>
                             </Link>
                         )}
