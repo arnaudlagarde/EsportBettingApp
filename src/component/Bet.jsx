@@ -24,7 +24,7 @@ class Bet extends Component {
 
             const match = [];
             for (let i = 0; i < data2.bet.length; i++) {
-                const response = await fetch('https://api.pandascore.co/' + data2.bet[i].game + '/matches?filter[id]=' + data2.bet[i].id_match + '&token=rRcdDE_NFYnsdPhB_SgRMlITTj29-tgl2hVxZvfwmvlb5DdDghU');
+                const response = await fetch('https://api.pandascore.co/' + data2.bet[i].game + '/matches?filter[id]=' + data2.bet[i].id_match + '&token=SVQRh-y62CqIltlLkP4OKuIOYTQ0xzyIjL8Rh0H9yRPFLaaSCm4');
                 const data = await response.json();
 
                 match.push(data);

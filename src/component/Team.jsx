@@ -12,7 +12,7 @@ class Team extends Component {
     }
 
     async componentDidMount() {
-        const response = await fetch('https://api.pandascore.co/' + this.props.match.params.game + '/teams?filter[id]=' + this.props.match.params.id + '&token=rRcdDE_NFYnsdPhB_SgRMlITTj29-tgl2hVxZvfwmvlb5DdDghU');
+        const response = await fetch('https://api.pandascore.co/' + this.props.match.params.game + '/teams?filter[id]=' + this.props.match.params.id + '&token=SVQRh-y62CqIltlLkP4OKuIOYTQ0xzyIjL8Rh0H9yRPFLaaSCm4');
         const data = await response.json();
         this.setState({
             teams: data

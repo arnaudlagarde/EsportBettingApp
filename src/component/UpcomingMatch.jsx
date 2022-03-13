@@ -13,7 +13,7 @@ class Match extends Component {
     }
 
     async componentDidMount() {
-        const response = await fetch('https://api.pandascore.co/' + this.props.match.params.game + '/matches/upcoming?filter[league_id]=' + this.props.match.params.id + '&token=rRcdDE_NFYnsdPhB_SgRMlITTj29-tgl2hVxZvfwmvlb5DdDghU');
+        const response = await fetch('https://api.pandascore.co/' + this.props.match.params.game + '/matches/upcoming?filter[league_id]=' + this.props.match.params.id + '&token=SVQRh-y62CqIltlLkP4OKuIOYTQ0xzyIjL8Rh0H9yRPFLaaSCm4');
         const data = await response.json();
         this.setState({
             matchs: data
@@ -160,7 +160,8 @@ class Match extends Component {
                                         </div>
 
                                         {this.state.bet.indexOf(match.id) === -1 ?
-                                            <div className="mise"><input type="number" min="1" max={this.state.coin}/>
+                                            <div className="mise">
+                                                <input type="number" min="1" max={this.state.coin}/>
                                                 <button id="bet" onClick={() => this.handleInputChange(match.id)}>Bet
                                                 </button>
                                             </div> : <div className="mise">You already bet on this match</div>
