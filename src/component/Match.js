@@ -1,48 +1,57 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect, Route} from 'react-router-dom';
+import Login from '../login/login';
 
 class Match extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            matchs: [],
+            matches: [],
         }
     }
 
     async componentDidMount() {
-        const response = await fetch('https://api.pandascore.co/rl/matchs?filter[league_id]=' + this.props.match.params.id + '&token=rRcdDE_NFYnsdPhB_SgRMlITTj29-tgl2hVxZvfwmvlb5DdDghU');
+        const response = await fetch('https://api.pandascore.co/' + this.props.match.params.game + '/matches?filter[league_id]=' + this.props.match.params.id + '&token=rRcdDE_NFYnsdPhB_SgRMlITTj29-tgl2hVxZvfwmvlb5DdDghU');
         const data = await response.json();
         this.setState({
-            matchs: data
+            matches: data
 
         })
     }
 
     render() {
-        return (
-            <div>
+        const loggedInUser = localStorage.getItem("user");
+        if (loggedInUser === null) {
+            return (
+                <div>
+                    <Route exact path="/home">
+                        <Redirect to="/"/> : <Login/>
+                    </Route>
+                </div>
+            );
+        } else {
+            return (
+                <div class="shadow">
 
-                {this.state.matchs.map(match =>
-                    <div style={{border: '1px solid black'}}>
-                        <p>{match.name}</p>
+                    <Link class={"lien-jeux lien"} key='rl' id={this.props.match.params.id}
+                          to={`/${this.props.match.params.game}/past/${this.props.match.params.id}`}>
+                        <button class="jeux">Past Match</button>
+                    </Link>
 
-                        {match.opponents.map(opponent =>
-                            <Link key={opponent.opponent.id} game={this.props.match.params.game}
-                                  to={`/${this.props.match.params.game}/equipe/${opponent.opponent.id}`}>
-                                <img src={opponent.opponent.image_url}></img>
-                            </Link>
-                        )}
+                    <Link class={"lien-jeux lien"} key='rl' id={this.props.match.params.id}
+                          to={`/${this.props.match.params.game}/upcoming/${this.props.match.params.id}`}>
+                        <button class="jeux">Upcoming Match</button>
+                    </Link>
 
-                        {match.winner != null &&
-                            <p>Winner : {match.winner.name}</p>
-                        }
+                    <Link class={"lien-jeux lien"} key='rl' id={this.props.match.params.id}
+                          to={`/${this.props.match.params.game}/ongoing/${this.props.match.params.id}`}>
+                        <button class="jeux">Ongoing Match</button>
+                    </Link>
 
-
-                    </div>
-                )}
-            </div>
-        )
+                </div>
+            )
+        }
     }
 }
 
