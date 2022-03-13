@@ -59,7 +59,7 @@ class Bet extends Component {
                 return (
                     <div>
 
-                        <div style={{"text-align": "center", "margin": "50px 0"}}>
+                        <div style={{"textAlign": "center", "margin": "50px 0"}}>
                             <p>My coins : {this.state.coins}</p>
                         </div>
 

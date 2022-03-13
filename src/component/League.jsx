@@ -125,7 +125,7 @@ class League extends Component {
                                     <h5 className="card-title">{league.name}</h5>
                                 </Link>
                                 <div className="card-body">
-                                    <h7> Add to favorite </h7>
+                                     Add to favorite
                                     <input id={league.id} type="checkbox"
                                            onChange={() => this.handleInputChange(league.id)}/>
                                 </div>

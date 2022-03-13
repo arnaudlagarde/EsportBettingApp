@@ -65,12 +65,11 @@ const App = () => {
                         type="password"
                         value={password}
                         placeholder="enter a password"
-                        onChange={({target}) => setPassword(target.value)}
-                    />
+                        onChange={({target}) => setPassword(target.value)}/>
                 </div>
                 <button type="submit">sign in</button>
-                <Link class="lien" to={`/register`}>
-                    <button type="submit" style={{"margin-left": "10px"}}>sign up</button>
+                <Link className="link" to={`/register`}>
+                    <button type="submit" style={{"marginleft": "10px"}}>sign up</button>
                 </Link>
             </form>
         </div>
