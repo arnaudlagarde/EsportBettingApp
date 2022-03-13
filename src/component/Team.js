@@ -43,7 +43,7 @@ class Team extends Component {
 
                             {team.players.map(player =>
                                 <div className="leagues" style={{"text-align": "center"}}>
-                                    <img src={player.image_url} alt={'Player Image'}/>
+                                    <img src={player.image_url} alt={'Player'}/>
                                     <p>{player.name}</p>
                                     <p>Nationality : {player.nationality}</p>
                                 </div>

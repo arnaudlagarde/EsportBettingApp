@@ -2,7 +2,7 @@
   "users": [
     {
       "email": "test@test.fr",
-      "password": "$2a$10$XXLcAl.CPgaqjhvyTmQvOuwgaWDozxXxWQ/FAl0lRUoFradfStqOe",
+      "password": "$2a$10$hAc1nHzo9z2cwYIAnsv7n.kY4ZWZQaqnTEwJnRzQRI7XgJ5LEesFe",
       "id": 1,
       "coin": 100,
       "favoris": [
@@ -14,7 +14,8 @@
         4581,
         4579,
         4724,
-        4756
+        4756,
+        4734
       ],
       "bet": []
     }

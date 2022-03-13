@@ -32,22 +32,27 @@ class Match extends Component {
             );
         } else {
             return (
-                <div className="shadow">
-
-                    <Link class={"lien-jeux lien"} key='rl' id={this.props.match.params.id}
-                          to={`/${this.props.match.params.game}/past/${this.props.match.params.id}`}>
-                        <button class="jeux">Past Match</button>
-                    </Link>
-
-                    <Link class={"lien-jeux lien"} key='rl' id={this.props.match.params.id}
-                          to={`/${this.props.match.params.game}/upcoming/${this.props.match.params.id}`}>
-                        <button class="jeux">Upcoming Match</button>
-                    </Link>
-
-                    <Link class={"lien-jeux lien"} key='rl' id={this.props.match.params.id}
-                          to={`/${this.props.match.params.game}/ongoing/${this.props.match.params.id}`}>
-                        <button class="jeux">Ongoing Match</button>
-                    </Link>
+                <div className="container">
+                    <div className="row">
+                        <div>
+                            <ul>
+                                <Link class={"lien-jeux lien"} key='' id={this.props.match.params.id}
+                                      to={`/${this.props.match.params.game}/past/${this.props.match.params.id}`}>
+                                    <button type="button" className="list-group-item list-group-item-action">Past
+                                        Match
+                                    </button>
+                                </Link>
+                                <Link class={"lien-jeux lien"} key='' id={this.props.match.params.id}
+                                      to={`/${this.props.match.params.game}/upcoming/${this.props.match.params.id}`}>
+                                    <button className="list-group-item list-group-item-action">Upcoming Match</button>
+                                </Link>
+                                <Link class={"lien-jeux lien"} key='' id={this.props.match.params.id}
+                                      to={`/${this.props.match.params.game}/ongoing/${this.props.match.params.id}`}>
+                                    <button className="list-group-item list-group-item-action">Ongoing Match</button>
+                                </Link>
+                            </ul>
+                        </div>
+                    </div>
 
                 </div>
             )
