@@ -1,7 +1,7 @@
 import React from "react";
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import Login from './login/login';
-import League from './component/league';
+import League from './component/League';
 import Match from './component/Match';
 import Team from './component/Team';
 import Home from './component/Home';
@@ -34,16 +34,16 @@ function App() {
 
             <Switch>
                 <Route exact path='/'>
-                    <Login/>
+                    <Login />
                 </Route>
                 <Route exact path='/register'>
-                    <Register/>
+                    <Register />
                 </Route>
                 <Route path='/home'>
-                    <Home/>
+                    <Home />
                 </Route>
                 <Route path='/bet'>
-                    <Bet/>
+                    <Bet />
                 </Route>
                 <Route path="/div/:game" component={League}/>
                 <Route path="/:game/leagues/:id" component={Match}/>
