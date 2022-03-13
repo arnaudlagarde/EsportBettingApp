@@ -4,22 +4,6 @@ import Login from '../login/login';
 
 class Match extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            matches: [],
-        }
-    }
-
-    async componentDidMount() {
-        const response = await fetch('https://api.pandascore.co/' + this.props.match.params.game + '/matches?filter[league_id]=' + this.props.match.params.id + '&token=SVQRh-y62CqIltlLkP4OKuIOYTQ0xzyIjL8Rh0H9yRPFLaaSCm4');
-        const data = await response.json();
-        this.setState({
-            matches: data
-
-        })
-    }
-
     render() {
         const loggedInUser = localStorage.getItem("user");
         if (loggedInUser === null) {

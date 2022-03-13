@@ -66,7 +66,6 @@ class League extends Component {
                 }
             }
         }
-
         const requestOptions = {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json'},
@@ -76,6 +75,7 @@ class League extends Component {
                 favoris: data1.favoris
             })
         };
+        // fetch accepts 2 arguments, ressource and options
         const response = await fetch('http://localhost:3003/users/' + localStorage.getItem("id"), requestOptions);
         const data = await response.json();
 
