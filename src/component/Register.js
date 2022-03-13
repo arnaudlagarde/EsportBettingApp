@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from "react";
-import {Route, Redirect, Link} from 'react-router-dom';
-import Home from '../component/Home';
+import {Route, Redirect} from 'react-router-dom';
+import Home from './Home';
 import jwt_decode from "jwt-decode";
 import '../App.css';
 
-const App = () => {
+const Register = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [user, setUser] = useState();
@@ -24,9 +24,9 @@ const App = () => {
         const requestOptions = {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({email: username, password: password})
+            body: JSON.stringify({email: username, password: password, coin: 100, favoris: [], bet: []})
         };
-        const response = await fetch('http://localhost:3003/login', requestOptions);
+        const response = await fetch('http://localhost:3003/register', requestOptions);
         const data = await response.json();
         if (data.accessToken != null) {
             setUser(data.accessToken);
@@ -36,12 +36,16 @@ const App = () => {
             const decoded = jwt_decode(data.accessToken);
             localStorage.setItem("id", decoded.sub);
         }
+
+        if (data === "Email already exists") {
+            alert("Email already exists");
+        }
     };
 
     if (user) {
         return (
             <div>
-                <Route exact path="/">
+                <Route exact path="/register">
                     <Redirect to="/home"/> : <Home/>
                 </Route>
             </div>
@@ -49,7 +53,7 @@ const App = () => {
     }
 
     return (
-        <div className="container">
+        <div class="container">
 
             <form onSubmit={handleSubmit}>
                 <label htmlFor="username">Email Address: </label>
@@ -68,13 +72,10 @@ const App = () => {
                         onChange={({target}) => setPassword(target.value)}
                     />
                 </div>
-                <button type="submit">sign in</button>
-                <Link class="lien" to={`/register`}>
-                    <button type="submit" style={{"margin-left": "10px"}}>sign up</button>
-                </Link>
+                <button type="submit">Create account</button>
             </form>
         </div>
     );
 };
 
-export default App;
+export default Register;
