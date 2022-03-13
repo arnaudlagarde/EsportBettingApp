@@ -96,7 +96,7 @@ class League extends Component {
         } else {
             return (
                 <div>
-                    <h1>Favoris</h1>
+                    <h1>Favorites</h1>
                     <div id="favorite">
 
                         {this.state.data.map(datas =>
@@ -113,7 +113,7 @@ class League extends Component {
                     </div>
 
 
-                    <h1>Les Ligues</h1>
+                    <h1>The Leagues</h1>
                     <div className="blocLeague">
                         {this.state.leagues.map(league =>
 

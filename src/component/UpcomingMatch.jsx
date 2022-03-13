@@ -129,7 +129,7 @@ class Match extends Component {
     render() {
         if (this.state.matchs.length === 0) {
             return (
-                <div style={{margin: "50px 0", display: "flex", "justify-content": "center"}}>
+                <div id='flex'>
                     <p>There is no upcoming match for this league.</p>
                 </div>
             )
@@ -140,10 +140,10 @@ class Match extends Component {
                     {this.state.matchs.map(match =>
                         <div>
                             {match.opponents.length > 0 &&
-                                <div className="shadow">
+                                <div>
                                     <p className={"title-match"}>{match.name}</p>
                                     <div className={match.id}>
-                                        <div style={{margin: "50px 0", display: "flex", "justify-content": "center"}}>
+                                        <div id='flex'>
                                             {match.opponents.map(opponent =>
 
                                                 <div className="team">
@@ -153,7 +153,7 @@ class Match extends Component {
 
                                                     <Link key={opponent.opponent.id} game={this.props.match.params.game}
                                                           to={`/${this.props.match.params.game}/team/${opponent.opponent.id}`}>
-                                                        <img id={"img-team"} src={opponent.opponent.image_url}/>
+                                                        <img id={"img-team"} src={opponent.opponent.image_url} alt='opponent'/>
                                                     </Link>
                                                 </div>
                                             )}
@@ -161,12 +161,11 @@ class Match extends Component {
 
                                         {this.state.bet.indexOf(match.id) === -1 ?
                                             <div className="mise"><input type="number" min="1" max={this.state.coin}/>
-                                                <button style={{"margin-top": "10px", width: "100%"}}
-                                                        onClick={() => this.handleInputChange(match.id)}>Bet
+                                                <button id="bet" onClick={() => this.handleInputChange(match.id)}>Bet
                                                 </button>
-                                            </div> : <div className="mise">You already bet on this match</div>}
+                                            </div> : <div className="mise">You already bet on this match</div>
+                                        }
                                     </div>
-
                                 </div>
                             }
                         </div>

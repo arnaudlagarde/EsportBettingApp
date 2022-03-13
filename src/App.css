@@ -34,16 +34,6 @@ form {
     margin: 1px 0;
 }
 
-#favorite {
-    border: 1px solid #f1f1f1;
-    background: #dddddd;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    display: flex;
-    justify-content: space-evenly;
-    margin: 5px;
-    flex-wrap: wrap;
-}
-
 .bloc {
     margin: 5px;
 }
@@ -108,4 +98,26 @@ form {
 }
 .image-parent {
     max-width: 40px;
+}
+
+#favorite {
+    border: 1px solid #f1f1f1;
+    background: #dddddd;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    display: flex;
+    justify-content: space-evenly;
+    margin: 5px;
+    flex-wrap: wrap;
+}
+#bet {
+    margin-top: 1%;
+    width: 100%;
+}
+#text-centered {
+    text-align: center;
+}
+#flex {
+    margin: 50px 0;
+    display: flex;
+    justify-content: center;
 }

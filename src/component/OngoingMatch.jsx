@@ -21,13 +21,13 @@ class Match extends Component {
     render() {
         if (this.state.matchs.length === 0) {
             return (
-                <div style={{margin: "50px 0", display: "flex", "justify-content": "center"}}>
+                <div id='flex'>
                     <p>There isn't any ongoing match for this league.</p>
                 </div>
             )
         } else {
             return (
-                <div className="shadow" style={{"text-align": "center"}}>
+                <div className="shadow" id='text-centered'>
                     {this.state.matchs.map(match =>
                         <div className={"match"}>
                             <p className={"title-match"}>{match.name}</p>

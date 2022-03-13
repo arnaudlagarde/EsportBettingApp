@@ -51,7 +51,7 @@ class Bet extends Component {
         } else {
             if (this.state.bets.length === 0) {
                 return (
-                    <div style={{margin: "50px 0", display: "flex", "justify-content": "center"}}>
+                    <div id='flex'>
                         <p>You haven't made any bet yet.</p>
                     </div>
                 )
@@ -64,7 +64,7 @@ class Bet extends Component {
                         </div>
 
                         {this.state.bets.map((bet, index) =>
-                            <div className="shadow" style={{"text-align": "center"}}>
+                            <div className="shadow" id='text-centered'>
                                 <div>
                                     {this.state.matchs[index][0].opponents.map(opponent =>
                                         <img src={opponent.opponent.image_url} alt={'Opponent'}/>

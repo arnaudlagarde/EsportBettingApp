@@ -22,7 +22,7 @@ class Match extends Component {
     render() {
         if (this.state.matchs.length === 0) {
             return (
-                <div style={{margin: "50px 0", display: "flex", "justify-content": "center"}}>
+                <div id='flex'>
                     <p>There isn't any match for this particular league.</p>
                 </div>
             )
@@ -30,7 +30,7 @@ class Match extends Component {
             return (
                 <div>
                     {this.state.matchs.map(match =>
-                        <div style={{"text-align": "center"}}>
+                        <div id='text-centered'>
                             <div className={"match"}>
                                 <p className={"title-match"}>{match.name}</p>
                                 {match.opponents.map(opponent =>
