@@ -29,9 +29,9 @@ class Home extends Component {
                 {id: 'rl', nom: 'Rocket League'}
             ];
             return (
-                <div class="container">
-                    <div class="row">
-                        <div class=" col-12 col-sm-6 col-lg-4">
+                <div className="container">
+                    <div className="row">
+                        <div className=" col-12 col-sm-6 col-lg-4">
                             <h6 class="text-muted">List of Games</h6>
                             <ul class="list-group">
                                 {game.map(game =>

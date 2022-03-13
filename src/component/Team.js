@@ -36,13 +36,13 @@ class Team extends Component {
 
                     {this.state.teams.map(team =>
                         <div style={{"text-align": "center"}}>
-                            <div class="shadow" style={{"text-align": "center", "margin-bottom": "30px"}}>
+                            <div className="shadow" style={{"text-align": "center", "margin-bottom": "30px"}}>
                                 <p>{team.name} {team.acronym}</p>
                                 <img src={team.image_url} alt={'Team Image'}/>
                             </div>
 
                             {team.players.map(player =>
-                                <div class="leagues" style={{"text-align": "center"}}>
+                                <div className="leagues" style={{"text-align": "center"}}>
                                     <img src={player.image_url} alt={'Player Image'}/>
                                     <p>{player.name}</p>
                                     <p>Nationality : {player.nationality}</p>

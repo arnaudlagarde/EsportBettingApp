@@ -100,7 +100,7 @@ class League extends Component {
                     <div id="favoris">
 
                         {this.state.data.map(datas =>
-                            <div class="bloc">
+                            <div className="bloc">
                                 <input id={datas.id} checked={this.state.checked} type="checkbox"
                                        onChange={() => this.handleInputChange(datas.id)}/>
                                 <Link key={datas.id} game={this.props.match.params.game}
@@ -117,7 +117,7 @@ class League extends Component {
                     <div className="blocLeague">
                         {this.state.leagues.map(league =>
 
-                            <div class="card col-sm-12 col-lg-5 col-md-4">
+                            <div className="card col-sm-12 col-lg-5 col-md-4">
                                 <Link key={league.id} game={this.props.match.params.game}
                                       to={`/${this.props.match.params.game}/leagues/${league.id}`}>
 

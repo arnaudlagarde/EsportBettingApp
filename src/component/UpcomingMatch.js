@@ -139,13 +139,13 @@ class Match extends Component {
                     {this.state.matchs.map(match =>
                         <div>
                             {match.opponents.length > 0 &&
-                                <div class="shadow">
+                                <div className="shadow">
                                     <p className={"title-match"}>{match.name}</p>
                                     <div className={match.id}>
                                         <div style={{margin: "50px 0", display: "flex", "justify-content": "center"}}>
                                             {match.opponents.map(opponent =>
 
-                                                <div class="team">
+                                                <div className="team">
                                                     {this.state.bet.indexOf(match.id) === -1 ?
                                                         <input id={opponent.opponent.id} type="radio" name={match.id}
                                                                value={opponent.opponent.id}/> : <div></div>}
@@ -159,11 +159,11 @@ class Match extends Component {
                                         </div>
 
                                         {this.state.bet.indexOf(match.id) === -1 ?
-                                            <div class="mise"><input type="number" min="1" max={this.state.coin}/>
+                                            <div className="mise"><input type="number" min="1" max={this.state.coin}/>
                                                 <button style={{"margin-top": "10px", width: "100%"}}
                                                         onClick={() => this.handleInputChange(match.id)}>Validate
                                                 </button>
-                                            </div> : <div class="mise">You already bet on this match</div>}
+                                            </div> : <div className="mise">You already bet on this match</div>}
                                     </div>
 
                                 </div>

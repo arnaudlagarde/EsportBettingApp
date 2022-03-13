@@ -32,7 +32,7 @@ class Match extends Component {
             );
         } else {
             return (
-                <div class="shadow">
+                <div className="shadow">
 
                     <Link class={"lien-jeux lien"} key='rl' id={this.props.match.params.id}
                           to={`/${this.props.match.params.game}/past/${this.props.match.params.id}`}>

@@ -53,7 +53,7 @@ const Register = () => {
     }
 
     return (
-        <div class="container">
+        <div className="container">
 
             <form onSubmit={handleSubmit}>
                 <label htmlFor="username">Email Address: </label>

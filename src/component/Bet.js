@@ -64,7 +64,7 @@ class Bet extends Component {
                         </div>
 
                         {this.state.bets.map((bet, index) =>
-                            <div class="shadow" style={{"text-align": "center"}}>
+                            <div className="shadow" style={{"text-align": "center"}}>
                                 <div>
                                     {this.state.matchs[index][0].opponents.map(opponent =>
                                         <img src={opponent.opponent.image_url} alt={'Opponent'}/>

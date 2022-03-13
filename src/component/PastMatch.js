@@ -30,7 +30,7 @@ class Match extends Component {
             return (
                 <div>
                     {this.state.matchs.map(match =>
-                        <div class="shadow" style={{"text-align": "center"}}>
+                        <div className="shadow" style={{"text-align": "center"}}>
                             <div className={"match"}>
                                 <p className={"title-match"}>{match.name}</p>
                                 {match.opponents.map(opponent =>

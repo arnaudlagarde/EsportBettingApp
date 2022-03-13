@@ -27,7 +27,7 @@ class Match extends Component {
             )
         } else {
             return (
-                <div class="shadow" style={{"text-align": "center"}}>
+                <div className="shadow" style={{"text-align": "center"}}>
                     {this.state.matchs.map(match =>
                         <div className={"match"}>
                             <p className={"title-match"}>{match.name}</p>
