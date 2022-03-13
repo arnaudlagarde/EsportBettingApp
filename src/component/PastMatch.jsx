@@ -30,7 +30,7 @@ class Match extends Component {
             return (
                 <div>
                     {this.state.matchs.map(match =>
-                        <div className="shadow" style={{"text-align": "center"}}>
+                        <div style={{"text-align": "center"}}>
                             <div className={"match"}>
                                 <p className={"title-match"}>{match.name}</p>
                                 {match.opponents.map(opponent =>
@@ -40,7 +40,7 @@ class Match extends Component {
                                     </Link>
                                 )}
                                 {match.winner != null &&
-                                    <p className={"vainqueur"}>Winner : {match.winner.name}</p>
+                                    <p className={"vainqueur"}>Winner : <b>{match.winner.name}</b></p>
                                 }
                             </div>
                         </div>

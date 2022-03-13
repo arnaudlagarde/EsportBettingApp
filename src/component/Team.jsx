@@ -24,11 +24,9 @@ class Team extends Component {
         const loggedInUser = localStorage.getItem("user");
         if (loggedInUser == null) {
             return (
-                <div>
-                    <Route exact path="/home">
-                        <Redirect to="/"/> : <Login/>
-                    </Route>
-                </div>
+                <Route exact path="/home">
+                    <Redirect to="/"/> : <Login/>
+                </Route>
             );
         } else {
             return (
@@ -36,7 +34,7 @@ class Team extends Component {
 
                     {this.state.teams.map(team =>
                         <div style={{"text-align": "center"}}>
-                            <div className="shadow" style={{"text-align": "center", "margin-bottom": "30px"}}>
+                            <div style={{"text-align": "center", "margin-bottom": "30px"}}>
                                 <p>{team.name} {team.acronym}</p>
                                 <img src={team.image_url} alt={'Team Image'}/>
                             </div>

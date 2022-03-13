@@ -136,6 +136,7 @@ class Match extends Component {
         } else {
             return (
                 <div>
+                    <h1> Place your bets !</h1>
                     {this.state.matchs.map(match =>
                         <div>
                             {match.opponents.length > 0 &&
@@ -161,7 +162,7 @@ class Match extends Component {
                                         {this.state.bet.indexOf(match.id) === -1 ?
                                             <div className="mise"><input type="number" min="1" max={this.state.coin}/>
                                                 <button style={{"margin-top": "10px", width: "100%"}}
-                                                        onClick={() => this.handleInputChange(match.id)}>Validate
+                                                        onClick={() => this.handleInputChange(match.id)}>Bet
                                                 </button>
                                             </div> : <div className="mise">You already bet on this match</div>}
                                     </div>

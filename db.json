@@ -2,9 +2,9 @@
   "users": [
     {
       "email": "test@test.fr",
-      "password": "$2a$10$H/LnGtDcNp2TUj8GumDhQ.DkGlk/yccxGmtM0U7/Y5WGLEJL75aMC",
+      "password": "$2a$10$03I4HZ3Skol9bfLsP04mAepXwaVup7mtW6NZr9j0QY9tB8rneyaDe",
       "id": 1,
-      "coin": 100,
+      "coin": 98,
       "favoris": [
         4246,
         4415,
@@ -13,11 +13,19 @@
         4579,
         4724,
         4756,
-        4734,
         4446,
-        4704
+        4704,
+        4734
       ],
-      "bet": []
+      "bet": [
+        {
+          "id_match": 616514,
+          "winner_id": "128348",
+          "mise": "2",
+          "name": "",
+          "game": "lol"
+        }
+      ]
     }
   ]
 }
