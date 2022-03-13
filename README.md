@@ -2,9 +2,10 @@
 
 ### `npm install`
 
+### `npm install -g json-server`
+
 ### `npm install -D json-server json-server-auth`
 
-#### jwt-decode is a small browser library that helps decoding JWTs token which are Base64Url encoded.
 ### `npm install jwt-decode`
 
 # To start the project 
