@@ -97,7 +97,7 @@ class League extends Component {
             return (
                 <div>
                     <h1>Favoris</h1>
-                    <div id="favoris">
+                    <div id="favorite">
 
                         {this.state.data.map(datas =>
                             <div className="bloc">
@@ -117,11 +117,11 @@ class League extends Component {
                     <div className="blocLeague">
                         {this.state.leagues.map(league =>
 
-                            <div className="card col-sm-12 col-lg-5 col-md-4">
+                            <div>
                                 <Link key={league.id} game={this.props.match.params.game}
                                       to={`/${this.props.match.params.game}/leagues/${league.id}`}>
 
-                                    <img class="card-img-top" src={league.image_url} alt="Card cap"/>
+                                    <img src={league.image_url} alt="Card cap"/>
                                     <h5 className="card-title">{league.name}</h5>
                                 </Link>
                                 <div className="card-body">

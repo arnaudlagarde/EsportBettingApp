@@ -31,12 +31,12 @@ class Home extends Component {
             return (
                 <div className="container">
                     <div className="row">
-                        <div className=" col-12 col-sm-6 col-lg-4">
-                            <h6 class="text-muted">List of Games</h6>
-                            <ul class="list-group">
+                        <div>
+                            <h6 className="text-muted">List of Games</h6>
+                            <ul className="list-group">
                                 {game.map(game =>
                                     <Link key={game.id} to={`/div/${game.id}`}>
-                                        <button type="button" class="list-group-item list-group-item-action ">{game.nom}</button>
+                                        <button type="button" className="list-group-item list-group-item-action ">{game.nom}</button>
                                     </Link>
                                 )}
                             </ul>
